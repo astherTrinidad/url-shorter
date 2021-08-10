@@ -1,13 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import urlData from "components/molecules/urlData";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+      </header>
+      <main>
+        <form className="App-form">
+          <label>Introduce la dirección que deseas acortar</label>
+          <input type="text" />
+          <button value="Generar url">Generar url</button>
+        </form>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          <code>url Original</code>
         </p>
         <a
           className="App-link"
@@ -15,11 +23,10 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          url acortada
         </a>
-      </header>
+        <p>{urlData}</p>
+      </main>
     </div>
   );
 }
-
-export default App;
