@@ -1,6 +1,5 @@
-import logo from "./logo.svg";
-import "./App.css";
-import urlData from "components/molecules/urlData";
+import logo from "../../../assets/images/logo.svg";
+import "./styles.css";
 
 export default function App() {
   return (
@@ -25,7 +24,6 @@ export default function App() {
         >
           url acortada
         </a>
-        <p>{urlData}</p>
       </main>
     </div>
   );
