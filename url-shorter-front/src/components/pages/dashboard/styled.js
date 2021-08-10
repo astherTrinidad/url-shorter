@@ -6,6 +6,10 @@ const ComponentStyled = styled.div`
     display: flex;
     flex-flow: column;
   }
+
+  .App-logo {
+    height: 10vmin;
+  }
 `;
 
 export default ComponentStyled;

@@ -1,5 +1,5 @@
 import React from "react";
-import ContainerStyled from ".styled";
+import ContainerStyled from "./styled";
 
 const RegularInput = ({
   label,
@@ -16,3 +16,5 @@ const RegularInput = ({
     </ContainerStyled>
   );
 };
+
+export default RegularInput;

@@ -1,2 +1,2 @@
-import component from ".view";
+import component from "./view";
 export default component;

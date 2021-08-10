@@ -2,8 +2,13 @@ import React from "react";
 import logo from "../../../assets/images/logo.svg";
 import ComponentStyled from "./styled";
 import { Container } from "@material-ui/core";
+import { RegularButton } from "../../atoms";
 
 const Dashboard = () => {
+  const handleCreateUrl = () => {
+    alert("Hey!");
+  };
+
   return (
     <ComponentStyled>
       <Container className="page-container">
@@ -15,7 +20,11 @@ const Dashboard = () => {
             <form className="App-form">
               <label>Introduce la dirección que deseas acortar</label>
               <input type="text" />
-              <button value="Generar url">Generar url</button>
+              <RegularButton
+                type="button"
+                label="Generar URL"
+                onClick={handleCreateUrl}
+              />
             </form>
             <p>
               <code>url Original</code>
