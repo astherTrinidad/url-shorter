@@ -2,6 +2,11 @@ import styled from "styled-components";
 import colors from "../../../assets/colors";
 
 const ComponentStyled = styled.div`
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
   button {
     border-radius: 0;
     border: white;
@@ -10,7 +15,7 @@ const ComponentStyled = styled.div`
     cursor: pointer;
     font-size: 1.25rem;
     font-weight: bold;
-    margin: 1rem 0 0 0;
+    margin: 1rem 0;
     padding: 1rem 1.5rem;
   }
 

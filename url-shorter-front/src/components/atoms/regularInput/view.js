@@ -1,20 +1,37 @@
 import React from "react";
-import ContainerStyled from "./styled";
+import { Input, Label, Container, ErrorContainer } from "./styled";
 
 const RegularInput = ({
-  label,
-  type,
+  id,
+  placeholder,
   value,
+  onChange,
+  onFocus,
+  onBlur,
+  name,
+  type,
+  label,
+  touched,
   error,
-  handleOnChange,
-  handleOnBlur,
-}) => {
-  return (
-    <ContainerStyled>
-      {label && <p className="label">{label}</p>}
-      <p>Hola</p>
-    </ContainerStyled>
-  );
-};
+}) => (
+  <Container>
+    <Label htmlFor={label}>
+      {label && <p>{label}:</p>}
+      <Input
+        id={id}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        name={name}
+        type={type}
+        touched={touched}
+        error={error}
+      />
+    </Label>
+    {error && touched && <ErrorContainer>{error}</ErrorContainer>}
+  </Container>
+);
 
 export default RegularInput;
