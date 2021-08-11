@@ -37,8 +37,8 @@ export const Label = styled.label`
 `;
 
 export const Container = styled.div`
-  margin: 2rem auto;
-  width: 70%;
+  margin: 0 auto;
+  width: 80%;
 `;
 
 export const ErrorContainer = styled.div`
