@@ -77,7 +77,7 @@ const Dashboard = () => {
               onClick={handleCreateUrl}
             />
           </form>
-          {/* <UrlData originText={urlData.origin} shorterText="" /> */}
+          <UrlData originText={urlData.origin} shorterText={urlData.shorter} />
         </main>
       </Container>
     </ComponentStyled>
