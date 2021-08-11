@@ -4,7 +4,7 @@ import ComponentStyled from "./styled";
 import { Container } from "@material-ui/core";
 import { RegularButton, RegularInput } from "../../atoms";
 import { validateUrl } from "../../../utils/index";
-
+import { UrlData } from "../../molecules";
 const Dashboard = () => {
   const [urlData, setUrlData] = useState({
     origin: "",
@@ -77,17 +77,7 @@ const Dashboard = () => {
               onClick={handleCreateUrl}
             />
           </form>
-          <p>
-            <code>Url Original: {urlData.origin}</code>
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            url acortada
-          </a>
+          {/* <UrlData originText={urlData.origin} shorterText="" /> */}
         </main>
       </Container>
     </ComponentStyled>
