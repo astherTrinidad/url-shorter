@@ -3,6 +3,7 @@ import logo from "../../../assets/images/logo.svg";
 import ComponentStyled from "./styled";
 import { Container } from "@material-ui/core";
 import { RegularButton, RegularInput } from "../../atoms";
+import { validateUrl } from "../../../utils/index";
 
 const Dashboard = () => {
   const [urlData, setUrlData] = useState({
@@ -14,8 +15,27 @@ const Dashboard = () => {
     origin: false,
   });
 
+  const [errors, setErrors] = useState({
+    origin: "",
+  });
+
+  const validate = useCallback(() => {
+    const newErrors = {
+      origin: "",
+    };
+    if (!urlData.origin) newErrors.origin = "Campo obligatorio";
+    else if (!validateUrl(urlData.origin))
+      newErrors.origin = "Introduce una dirección de url correcta";
+
+    setErrors(newErrors);
+  }, [urlData]);
+
+  useEffect(() => {
+    validate();
+  }, [urlData, validate]);
+
   const handleCreateUrl = () => {
-    alert(urlData.origin);
+    alert(errors.origin);
   };
 
   const handleChange = (event) => {
@@ -49,6 +69,7 @@ const Dashboard = () => {
               touched={touched.origin}
               onChange={handleChange}
               onBlur={handleBlur}
+              error={errors.origin}
             />
             <RegularButton
               type="submit"
