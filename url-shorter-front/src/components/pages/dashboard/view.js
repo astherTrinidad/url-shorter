@@ -38,13 +38,11 @@ const Dashboard = () => {
 
   const handleCreateUrl = async (e) => {
     e.preventDefault();
-    if (!errors) {
-      try {
-        var response = await apiShorterUrl(urlData);
-        console.log(response.message);
-      } catch (event) {
-        console.log("Error");
-      }
+    try {
+      var response = await apiShorterUrl(urlData);
+      console.log(response.message);
+    } catch (event) {
+      console.log("Error");
     }
   };
 
