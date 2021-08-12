@@ -5,6 +5,8 @@ import { Container } from "@material-ui/core";
 import { RegularButton, RegularInput } from "../../atoms";
 import { validateUrl } from "../../../utils/index";
 import { UrlData } from "../../molecules";
+import url from "../../../config/url";
+
 const Dashboard = () => {
   const [urlData, setUrlData] = useState({
     origin: "",
@@ -34,8 +36,16 @@ const Dashboard = () => {
     validate();
   }, [urlData, validate]);
 
-  const handleCreateUrl = () => {
-    alert(errors.origin);
+  const handleCreateUrl = async (e) => {
+    e.preventDefault();
+    if (!errors) {
+      try {
+        var response = await apiShorterUrl(urlData);
+        console.log(response.message);
+      } catch (event) {
+        console.log("Error");
+      }
+    }
   };
 
   const handleChange = (event) => {
@@ -85,3 +95,16 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
+async function apiShorterUrl(urlOrigin) {
+  let response = await fetch(`${url.base}${url.shorterUrl}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(urlOrigin),
+  });
+
+  let content = await response.text();
+  return content;
+}
