@@ -25,6 +25,7 @@ const Dashboard = () => {
     const newErrors = {
       origin: "",
     };
+
     if (!urlData.origin) newErrors.origin = "Campo obligatorio";
     else if (!validateUrl(urlData.origin))
       newErrors.origin = "Introduce una dirección de url correcta";
@@ -36,11 +37,21 @@ const Dashboard = () => {
     validate();
   }, [urlData, validate]);
 
-  const handleCreateUrl = async (e) => {
-    e.preventDefault();
+  const handleCreateUrl = async (event) => {
+    event.preventDefault();
     try {
       var response = await apiShorterUrl(urlData);
-      console.log(response.message);
+      setUrlData(JSON.parse(response));
+      apiRedirectUrl(urlData.shorter);
+    } catch (event) {
+      console.log("Error");
+    }
+  };
+
+  const handleRedirect = async (event) => {
+    event.preventDefault();
+    try {
+      var response = await apiRedirectUrl();
     } catch (event) {
       console.log("Error");
     }
@@ -85,7 +96,10 @@ const Dashboard = () => {
               onClick={handleCreateUrl}
             />
           </form>
-          <UrlData originText={urlData.origin} shorterText={urlData.shorter} />
+          <UrlData
+            originText={urlData.origin}
+            shorterText={`${url.base}/${urlData.shorter}`}
+          />
         </main>
       </Container>
     </ComponentStyled>
@@ -105,4 +119,13 @@ async function apiShorterUrl(urlOrigin) {
 
   let content = await response.text();
   return content;
+}
+
+async function apiRedirectUrl(keyShorter) {
+  return fetch(`${url.base}/${keyShorter}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then((data) => data.json());
 }
