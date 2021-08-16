@@ -39,7 +39,7 @@ class Url {
     }
 
     public function getShorterWithUrlBase(): string {
-        return 'http://localhost:8000/' .$this->shorter;
+        return $this->shorter;
     }
     
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import logo from "../../../assets/images/logo.svg";
 import ComponentStyled from "./styled";
+import { useHistory } from "react-router-dom";
 import { Container } from "@material-ui/core";
 import { RegularButton, RegularInput } from "../../atoms";
 import { validateUrl } from "../../../utils/index";
@@ -8,6 +9,8 @@ import { UrlData } from "../../molecules";
 import url from "../../../config/url";
 
 const Dashboard = () => {
+  const history = useHistory();
+
   const [urlData, setUrlData] = useState({
     origin: "",
     shorter: "",
@@ -43,15 +46,6 @@ const Dashboard = () => {
       var response = await apiShorterUrl(urlData);
       setUrlData(JSON.parse(response));
       apiRedirectUrl(urlData.shorter);
-    } catch (event) {
-      console.log("Error");
-    }
-  };
-
-  const handleRedirect = async (event) => {
-    event.preventDefault();
-    try {
-      var response = await apiRedirectUrl();
     } catch (event) {
       console.log("Error");
     }
@@ -98,7 +92,7 @@ const Dashboard = () => {
           </form>
           <UrlData
             originText={urlData.origin}
-            shorterText={`${url.base}/${urlData.shorter}`}
+            shorterText={`http://localhost:3000/${urlData.shorter}`}
           />
         </main>
       </Container>
