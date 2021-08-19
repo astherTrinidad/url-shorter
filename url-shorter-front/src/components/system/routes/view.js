@@ -5,7 +5,6 @@ import Redirect from "../../pages/redirect";
 import NotFound from "../../pages/notFound";
 
 function Routes() {
-  const currentPathname = window.location.pathname;
   return (
     <Router>
       <Switch>

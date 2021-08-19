@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useCallback } from "react";
-import logo from "../../../assets/images/logo.svg";
-import ComponentStyled from "./styled";
 import { Container } from "@material-ui/core";
-import { RegularButton, RegularInput } from "../../atoms";
-import { validateUrl } from "../../../utils/index";
-import { UrlData } from "../../molecules";
+
+import * as API from "../../../api/index";
 import url from "../../../config/url";
+import { validateUrl } from "../../../utils/index";
+import ComponentStyled from "./styled";
+import { RegularButton, RegularInput } from "../../atoms";
+import { UrlData } from "../../molecules";
+import logo from "../../../assets/images/logo.svg";
 
 const Dashboard = () => {
   const [urlData, setUrlData] = useState({
@@ -29,7 +31,6 @@ const Dashboard = () => {
     if (!urlData.origin) newErrors.origin = "Campo obligatorio";
     else if (!validateUrl(urlData.origin))
       newErrors.origin = "Introduce una dirección de url correcta";
-
     setErrors(newErrors);
   }, [urlData]);
 
@@ -39,12 +40,15 @@ const Dashboard = () => {
 
   const handleCreateUrl = async (event) => {
     event.preventDefault();
-    try {
-      var response = await apiShorterUrl(urlData);
-      setUrlData(JSON.parse(response));
-      apiRedirectUrl(urlData.shorter);
-    } catch (event) {
-      console.log("Error");
+    if (!errors.origin) {
+      try {
+        var response = await API.shorterUrl(urlData);
+        setUrlData(response.text);
+      } catch (event) {
+        alert("ERROR SERVIDOR");
+      }
+    } else {
+      alert("URL NO VÁLIDA");
     }
   };
 
@@ -98,25 +102,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-async function apiShorterUrl(urlOrigin) {
-  let response = await fetch(`${url.base}${url.shorterUrl}`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(urlOrigin),
-  });
-
-  let content = await response.text();
-  return content;
-}
-
-async function apiRedirectUrl(keyShorter) {
-  return fetch(`${url.base}/${keyShorter}`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  }).then((data) => data.json());
-}
