@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import logo from "../../../assets/images/logo.svg";
 import ComponentStyled from "./styled";
-import { useHistory } from "react-router-dom";
 import { Container } from "@material-ui/core";
 import { RegularButton, RegularInput } from "../../atoms";
 import { validateUrl } from "../../../utils/index";
@@ -9,8 +8,6 @@ import { UrlData } from "../../molecules";
 import url from "../../../config/url";
 
 const Dashboard = () => {
-  const history = useHistory();
-
   const [urlData, setUrlData] = useState({
     origin: "",
     shorter: "",
@@ -92,7 +89,7 @@ const Dashboard = () => {
           </form>
           <UrlData
             originText={urlData.origin}
-            shorterText={`http://localhost:3000/${urlData.shorter}`}
+            shorterText={`${url.baseFront}${urlData.shorter}`}
           />
         </main>
       </Container>

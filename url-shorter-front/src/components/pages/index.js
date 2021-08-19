@@ -1,4 +1,4 @@
 import Dashboard from "./dashboard";
 import Redirect from "./redirect";
-
-export { Dashboard, Redirect };
+import NotFound from "./notFound";
+export { Dashboard, Redirect, NotFound };
