@@ -1,15 +1,14 @@
 import React from "react";
+import url from "../../../config/url";
+
 import { ContainerData, TextData, TextLink } from "./styled";
 
 const UrlData = ({ originText, shorterText }) => {
   return (
     <ContainerData>
-      <TextData>Url Original:</TextData>
-      <TextLink>{originText} </TextLink>
-
-      <TextData>Url Shorter:</TextData>
+      <TextData>{originText}</TextData>
       <TextLink href={originText} target="_blank" rel="redirect">
-        {shorterText}
+        {`${url.baseFront}${shorterText}`}
       </TextLink>
     </ContainerData>
   );

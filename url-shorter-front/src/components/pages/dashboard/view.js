@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from "react";
 import { Container } from "@material-ui/core";
 
 import * as API from "../../../api/index";
-import url from "../../../config/url";
 import { validateUrl } from "../../../utils/index";
 import ComponentStyled from "./styled";
 import { RegularButton, RegularInput } from "../../atoms";
@@ -10,10 +9,14 @@ import { UrlData } from "../../molecules";
 import logo from "../../../assets/images/logo.svg";
 
 const Dashboard = () => {
-  const [urlData, setUrlData] = useState({
-    origin: "",
-    shorter: "",
-  });
+  const [isNotUndefined, setIsNotUndefined] = useState(false);
+
+  const [urlData, setUrlData] = useState([
+    {
+      origin: "",
+      shorter: "",
+    },
+  ]);
 
   const [touched, setTouched] = useState({
     origin: false,
@@ -43,7 +46,12 @@ const Dashboard = () => {
     if (!errors.origin) {
       try {
         var response = await API.shorterUrl(urlData);
-        setUrlData(response.text);
+
+        if (response.text !== "undefined") {
+          setUrlData(response.text);
+          setIsNotUndefined(true);
+          console.log(urlData);
+        }
       } catch (event) {
         alert("ERROR SERVIDOR");
       }
@@ -53,8 +61,9 @@ const Dashboard = () => {
   };
 
   const handleChange = (event) => {
+    setIsNotUndefined(false);
+
     setUrlData({
-      ...urlData,
       [event.target.name]: event.target.value,
     });
   };
@@ -76,7 +85,6 @@ const Dashboard = () => {
           <form className="App-form">
             <RegularInput
               label="Introduce la dirección que deseas acortar"
-              placeholder="Origin"
               name="origin"
               type="text"
               value={urlData.origin}
@@ -91,10 +99,14 @@ const Dashboard = () => {
               onClick={handleCreateUrl}
             />
           </form>
-          <UrlData
-            originText={urlData.origin}
-            shorterText={`${url.baseFront}${urlData.shorter}`}
-          />
+          {!isNotUndefined ? (
+            <></>
+          ) : (
+            <UrlData
+              originText={urlData.origin}
+              shorterText={urlData.shorter}
+            />
+          )}
         </main>
       </Container>
     </ComponentStyled>
