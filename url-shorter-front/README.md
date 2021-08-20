@@ -19,7 +19,7 @@ https://es.reactjs.org/
 
 • NPM: 6.14.13
 
-### Lenguajes
+### Lenguajes 🛠️
 
 El código se escribe en JavaScript, pudiendo ser opcional el uso de JSX (extensión de JavaScript) facilitando la creación de componentes interactivos y reutilizables.
 
@@ -31,7 +31,9 @@ Este proyecto está creado en React [Create React App](https://github.com/facebo
 
 Desde el directorio del proyecto debemos de levantar la aplicación en Docker
 
+```
 ### docker-compose up
+```
 
 Verificamos todas las dependencias instaladas y creadas en el proyecto junto con todas sus versiones correspondientes que podremos ver dentro del fichero package.json
 
@@ -49,7 +51,11 @@ A continuación, el navegador se abrirá y podremos observar que podemos acceder
 
 ## React
 
-La variable de entorno para poder realizar las llamadas al endPoint se encuentran en un fichero .env. Por otro lado, disponemos dentro de la carpeta "config" dos ficheros en el que indicamos una serie de variables que necesitaremos durante el proyecto.
+La variable de entorno en el que indicamos la ruta para poder realizar las llamadas al endPoint se encuentran en un fichero .env.
+
+Los diferentes endPoint están incorporados dentro de la carpeta "api".
+
+Por otro lado, disponemos dentro de la carpeta "config" dos ficheros en el que indicamos una serie de variables que necesitaremos durante el proyecto.
 
 ### Estructura de carpetas 📁
 
