@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { Container } from "@material-ui/core";
 
 import * as API from "../../../api/index";
+import url from "../../../config/url";
 import { validateUrl } from "../../../utils/index";
 import ComponentStyled from "./styled";
 import { RegularButton, RegularInput } from "../../atoms";
@@ -10,13 +11,12 @@ import logo from "../../../assets/images/logo.svg";
 
 const Dashboard = () => {
   const [isNotUndefined, setIsNotUndefined] = useState(false);
+  const [copied, setCopied] = useState(false);
 
-  const [urlData, setUrlData] = useState([
-    {
-      origin: "",
-      shorter: "",
-    },
-  ]);
+  const [urlData, setUrlData] = useState({
+    origin: "",
+    shorter: "",
+  });
 
   const [touched, setTouched] = useState({
     origin: false,
@@ -50,7 +50,6 @@ const Dashboard = () => {
         if (response.text !== "undefined") {
           setUrlData(response.text);
           setIsNotUndefined(true);
-          console.log(urlData);
         }
       } catch (event) {
         alert("ERROR SERVIDOR");
@@ -75,11 +74,22 @@ const Dashboard = () => {
     });
   };
 
+  const handleCopyUrl = () => {
+    const urlShorterText = document.createElement("input");
+    console.log("soy shorter" + urlShorterText);
+    urlShorterText.value = `${url.baseFront}${urlData.shorter}`;
+    document.body.appendChild(urlShorterText);
+    urlShorterText.select();
+    document.execCommand("copy");
+    document.body.removeChild(urlShorterText);
+    setCopied(true);
+  };
+
   return (
     <ComponentStyled>
       <Container className="page-container">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={logo} className="App-logo" alt="url shorter logo" />
         </header>
         <main>
           <form className="App-form">
@@ -97,15 +107,21 @@ const Dashboard = () => {
               type="submit"
               label="Generar URL"
               onClick={handleCreateUrl}
+              size="md"
             />
           </form>
           {!isNotUndefined ? (
             <></>
           ) : (
-            <UrlData
-              originText={urlData.origin}
-              shorterText={urlData.shorter}
-            />
+            <>
+              <UrlData
+                originText={urlData.origin}
+                shorterText={urlData.shorter}
+                type="button"
+                label={!copied ? "Copiar Link" : "Copiado!"}
+                onClick={handleCopyUrl}
+              />
+            </>
           )}
         </main>
       </Container>

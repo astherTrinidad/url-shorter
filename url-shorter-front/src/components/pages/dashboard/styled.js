@@ -1,10 +1,13 @@
 import styled from "styled-components";
 import colors from "../../../assets/colors";
+
 const ComponentStyled = styled.div`
   .page-container {
     min-height: 100vh;
     display: flex;
     flex-flow: column;
+    justify-content: center;
+    width: 100%;
   }
 
   .App-logo {
@@ -16,10 +19,10 @@ const ComponentStyled = styled.div`
     background-color: ${colors.lightGreen};
     justify-content: center;
     margin: 2rem auto;
-    padding: 1rem;
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 100%;
+    padding: 1rem 0;
   }
 `;
 
