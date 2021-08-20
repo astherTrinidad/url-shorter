@@ -1,6 +1,6 @@
 # url shorter
 
-Este proyecto nos permite acortar la dirección de url indicada en un input de formulario.
+Este proyecto nos permite acortar una dirección de URL. Al ingresar la URL generada en el navegador, se envía una solicitud HTTP al servidor para abrir el sitio web indicado en un incio.
 
 ## Características 📋
 
@@ -32,7 +32,7 @@ Este proyecto está creado en React [Create React App](https://github.com/facebo
 Desde el directorio del proyecto debemos de levantar la aplicación en Docker
 
 ```
-### docker-compose up
+docker-compose up
 ```
 
 Verificamos todas las dependencias instaladas y creadas en el proyecto junto con todas sus versiones correspondientes que podremos ver dentro del fichero package.json
@@ -53,9 +53,11 @@ A continuación, el navegador se abrirá y podremos observar que podemos acceder
 
 La variable de entorno en el que indicamos la ruta para poder realizar las llamadas al endPoint se encuentran en un fichero .env.
 
-Los diferentes endPoint están incorporados dentro de la carpeta "api".
+Los diferentes endPoint están incorporados dentro de la carpeta src/api.
 
-Por otro lado, disponemos dentro de la carpeta "config" dos ficheros en el que indicamos una serie de variables que necesitaremos durante el proyecto.
+Por otro lado, disponemos dentro de la carpeta src/config dos ficheros en el que indicamos una serie de variables que necesitaremos durante el proyecto.
+
+Se incluye una expresión regular para validar la dirección de url introducida. Esta validación está incorporada dentro de la carpeta src/utils.
 
 ### Estructura de carpetas 📁
 
