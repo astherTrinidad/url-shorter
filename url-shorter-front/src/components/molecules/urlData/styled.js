@@ -4,21 +4,27 @@ import colors from "../../../assets/colors";
 const ContainerData = styled.div`
   border-bottom: 1px solid ${colors.lightGreen};
   padding: 1rem;
-  width: 80%;
+  width: 85%;
+  height: auto;
   margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const TextData = styled.p`
-  font-size: 1rem;
   color: ${colors.black};
-  font-weight: bold;
+  font-size: 1.125rem;
+  padding: 0;
 `;
 
 const TextLink = styled.a`
-  color: ${colors.blue};
-  font-size: 1.25rem;
-  font-weight: normal;
+  /* color: ${colors.blue}; */
   cursor: pointer;
+  font-size: 1.125rem;
+  font-weight: normal;
+  line-height: 0;
 `;
 
 export { ContainerData, TextData, TextLink };

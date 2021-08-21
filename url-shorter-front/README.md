@@ -1,70 +1,101 @@
-# Getting Started with Create React App
+# url shorter
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto nos permite acortar una dirección de URL. Al ingresar la URL generada en el navegador, se envía una solicitud HTTP al servidor para abrir el sitio web indicado en un incio.
 
-## Available Scripts
+## Características 📋
 
-In the project directory, you can run:
+### Framework
 
-### `yarn start`
+![logo react](https://user-images.githubusercontent.com/61313038/118236531-7a9aee00-b496-11eb-93ed-8e6ea0417edb.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Se utiliza React.
+https://es.reactjs.org/
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Versiones
 
-### `yarn test`
+• React: 17.0.2
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+• Node: v14.17.0
 
-### `yarn build`
+• NPM: 6.14.13
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Lenguajes 🛠️
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+El código se escribe en JavaScript, pudiendo ser opcional el uso de JSX (extensión de JavaScript) facilitando la creación de componentes interactivos y reutilizables.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Definimos cada uno de los estilos en los diferentes componentes mediante styled-components, éste a su vez utiliza todas las propiedades y valores de CSS.
 
-### `yarn eject`
+## Quick start 🚀
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Este proyecto está creado en React [Create React App](https://github.com/facebook/create-react-app).
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Desde el directorio del proyecto debemos de levantar la aplicación en Docker
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+docker-compose up
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Verificamos todas las dependencias instaladas y creadas en el proyecto junto con todas sus versiones correspondientes que podremos ver dentro del fichero package.json
 
-## Learn More
+```
+npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Ahora iniciamos la aplicación de react en la consola.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+npm start
+```
 
-### Code Splitting
+A continuación, el navegador se abrirá y podremos observar que podemos acceder a esta aplicación mediante http://localhost:3000
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## React
 
-### Analyzing the Bundle Size
+La variable de entorno en el que indicamos la ruta para poder realizar las llamadas al endPoint se encuentran en un fichero .env.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Los diferentes endPoint están incorporados dentro de la carpeta src/api.
 
-### Making a Progressive Web App
+Por otro lado, disponemos dentro de la carpeta src/config dos ficheros en el que indicamos una serie de variables que necesitaremos durante el proyecto.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Se incluye una expresión regular para validar la dirección de url introducida. Esta validación está incorporada dentro de la carpeta src/utils.
 
-### Advanced Configuration
+### Estructura de carpetas 📁
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```
+├── public
+└── src
+    ├── api
+    │   └── index.js
+    ├── assets
+    │   ├── colors.js
+    │   └── images
+    ├── components
+    │   ├── atoms
+    │   ├── molecules
+    │   ├── organisms
+    │   ├── pages
+    │   └── system
+    ├── config
+    │   ├── appRoutes.js
+    │   └── url.js
+    ├── index.css
+    ├── index.js
+    ├── setupTests.js
+    └── utils
+        └── index.js
+```
 
-### Deployment
+### Estructura de carpetas de componentes visuales 📁
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+atoms
+    ├── index.js
+    ├── regularButton
+    │   ├── index.js
+    │   ├── styled.js
+    │   └── view.js
+    └── regularInput
+        ├── index.js
+        ├── styled.js
+        └── view.js
+```

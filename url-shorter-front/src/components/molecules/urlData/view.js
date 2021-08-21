@@ -1,16 +1,17 @@
-import React from "react";
-import { ContainerData, TextData, TextLink } from "./styled";
+import React, { useState } from "react";
+import url from "../../../config/url";
 
-const UrlData = ({ originText, shorterText }) => {
+import { ContainerData, TextData, TextLink } from "./styled";
+import { RegularButton } from "../../atoms";
+
+const UrlData = ({ originText, shorterText, type, label, onClick }) => {
   return (
     <ContainerData>
-      <TextData>Url Original:</TextData>
-      <TextLink>{originText} </TextLink>
-
-      <TextData>Url Shorter:</TextData>
+      <TextData>{originText}</TextData>
       <TextLink href={originText} target="_blank" rel="redirect">
-        {shorterText}
+        {`${url.baseFront}${shorterText}`}
       </TextLink>
+      <RegularButton type={type} label={label} onClick={onClick} size="sm" />
     </ContainerData>
   );
 };

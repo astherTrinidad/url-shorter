@@ -1,6 +1,24 @@
 import styled from "styled-components";
 import colors from "../../../assets/colors";
 
+export const Container = styled.div`
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+  width: 90%;
+`;
+
+export const ErrorContainer = styled.div`
+  font-weight: normal;
+  color: ${colors.red};
+  font-size: 11px;
+  margin: 0 auto;
+  text-align: right;
+  width: 100%;
+`;
+
 export const Input = styled.input`
   background: ${colors.white};
   border: ${(props) =>
@@ -10,10 +28,10 @@ export const Input = styled.input`
   font-size: 16px;
   font-style: normal;
   font-weight: normal;
-  margin-top: 4px;
-  padding: 5px 12px;
+  margin: 1rem auto;
+  padding: 0.5rem 1rem;
   transition: all 0.4s;
-  width: 100%;
+  width: 90%;
 
   :focus {
     border: 1px solid ${colors.white};
@@ -25,26 +43,14 @@ export const Input = styled.input`
 `;
 
 export const Label = styled.label`
-  color: ${colors.black};
-  width: 100%;
-
   p {
+    color: ${colors.black};
     font-family: "Poppins", sans-serif;
     font-weight: normal;
-    font-size: 16px;
+    font-size: 1rem;
+    margin: 0 auto;
+    padding: 0 0;
     text-align: left;
+    width: 100%;
   }
-`;
-
-export const Container = styled.div`
-  margin: 0 auto;
-  width: 80%;
-`;
-
-export const ErrorContainer = styled.div`
-  font-weight: normal;
-  color: ${colors.white};
-  font-size: 11px;
-  text-align: right;
-  padding: 5px 5px 0;
 `;

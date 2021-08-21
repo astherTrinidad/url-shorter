@@ -13,14 +13,23 @@ const ComponentStyled = styled.div`
     background-color: ${colors.purple};
     color: white;
     cursor: pointer;
-    font-size: 1.25rem;
     font-weight: bold;
     margin: 1rem 0;
-    padding: 1rem 1.5rem;
   }
 
   button:hover {
     background-color: ${colors.purpleDark};
+  }
+  .md {
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 1rem 1.5rem;
+  }
+
+  .sm {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
   }
 `;
 
