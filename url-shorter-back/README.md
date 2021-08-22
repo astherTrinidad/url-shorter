@@ -1,7 +1,3 @@
-# url shorter
-
-Este proyecto nos permite acortar una dirección de URL. Al ingresar la URL generada en el navegador, se envía una solicitud HTTP al servidor para abrir el sitio web indicado en un incio.
-
 ## Características 📋
 
 ### Framework
@@ -40,7 +36,7 @@ Con los siguientes pasos la API estará preparada para hacerle llamadas desde el
 docker-compose up
 ```
 
-Si fuera necesario podemos detener los contenedores en ejecución
+Si fuera necesario podemos detener los contenedores en ejecución.
 
 ```
 docker-compose stop

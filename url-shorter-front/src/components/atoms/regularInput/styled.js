@@ -16,7 +16,7 @@ export const ErrorContainer = styled.div`
   font-size: 11px;
   margin: 0 auto;
   text-align: right;
-  width: 100%;
+  width: 90%;
 `;
 
 export const Input = styled.input`
@@ -49,8 +49,8 @@ export const Label = styled.label`
     font-weight: normal;
     font-size: 1rem;
     margin: 0 auto;
-    padding: 0 0;
-    text-align: left;
+    padding: 0;
+    text-align: center;
     width: 100%;
   }
 `;
