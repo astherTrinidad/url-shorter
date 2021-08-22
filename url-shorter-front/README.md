@@ -1,7 +1,3 @@
-# url shorter
-
-Este proyecto nos permite acortar una dirección de URL. Al ingresar la URL generada en el navegador, se envía una solicitud HTTP al servidor para abrir el sitio web indicado en un incio.
-
 ## Características 📋
 
 ### Framework
@@ -21,21 +17,21 @@ https://es.reactjs.org/
 
 ### Lenguajes 🛠️
 
-El código se escribe en JavaScript, pudiendo ser opcional el uso de JSX (extensión de JavaScript) facilitando la creación de componentes interactivos y reutilizables.
+El código se escribe en ReactJs.
 
-Definimos cada uno de los estilos en los diferentes componentes mediante styled-components, éste a su vez utiliza todas las propiedades y valores de CSS.
+Cada uno de los estilos en los diferentes componentes se incluyen mediante styled-components, éste a su vez utiliza todas las propiedades y valores de CSS.
 
 ## Quick start 🚀
 
 Este proyecto está creado en React [Create React App](https://github.com/facebook/create-react-app).
 
-Desde el directorio del proyecto debemos de levantar la aplicación en Docker
+Desde el directorio del proyecto debemos de levantar la aplicación en Docker.
 
 ```
-docker-compose up
+docker-compose up -d
 ```
 
-Verificamos todas las dependencias instaladas y creadas en el proyecto junto con todas sus versiones correspondientes que podremos ver dentro del fichero package.json
+Verificamos todas las dependencias instaladas y creadas en el proyecto. Una vez actualizadas podremos visualizar todas las dependencias dentro del fichero package.json.
 
 ```
 npm install

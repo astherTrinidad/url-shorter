@@ -1,7 +1,3 @@
-# url shorter
-
-Este proyecto nos permite acortar una dirección de URL. Al ingresar la URL generada en el navegador, se envía una solicitud HTTP al servidor para abrir el sitio web indicado en un incio.
-
 ## Características 📋
 
 ### Framework
@@ -24,32 +20,22 @@ Se integra con Doctrine, ORM para bases de datos con Symfony. Solamente hay que 
 
 ## Quick start 🚀
 
-Para levantar la API y la base de datos usamos docker para escritorio (Se puede descargar en https://docs.docker.com/docker-for-windows/install/).
-
-Con los siguientes pasos la API estará preparada para hacerle llamadas desde el front.
-
-1. Descargamos el proyecto desde el repositorio de GitHub
+1. Nos situamos dentro de la carpeta del proyecto e iniciamos las máquinas virtuales que harán de servidor y de base de datos en Docker.
 
 ```
-   git clone https://github.com/astherTrinidad/url-shorter.git
+docker-compose up -d
 ```
 
-2. Nos situamos dentro de la carpeta del proyecto e iniciamos las máquinas virtuales que harán de servidor y de base de datos en Docker.
+2. Descargamos las dependencias del proyecto con composer.
 
 ```
-docker-compose up
+docker-compose exec php-fpm composer install
 ```
 
-Si fuera necesario podemos detener los contenedores en ejecución
+3. Actualizamos el esquema de la base de datos.
 
 ```
-docker-compose stop
-```
-
-3. Actualizamos en la máquina virtual de PHP el esquema de la base de datos.
-
-```
-php bin/console doctrine:schema:update --force
+docker-compose exec php-fpm php bin/console doctrine:schema:update --force
 ```
 
 ## Symfony
@@ -60,13 +46,11 @@ Este proyecto en local corre en el puerto 8000, lo que significa que se podrá e
 http://localhost:8000/rutaEndPoint
 ```
 
-Dentro del proyecto podemos especificar variables en un fichero llamado .env. En este fichero aparece, por ejemplo, la definición del entorno.
+Creamos el fichero ".env.local" a partir del archivo ".env".
 
 ```
-APP_ENV=local
+cp .env .env.local
 ```
-
-Otros datos importantes contenidos en este fichero son los puertos que utiliza la base de datos y sus claves de acceso.
 
 ### Estructura de carpetas 📁
 
@@ -77,7 +61,6 @@ Otros datos importantes contenidos en este fichero son los puertos que utiliza l
     │   └── RedirectUrlController.php
     ├── Entity
     │   └── Url.php
-    ├── Kernel.php
     ├── Repository
     │   └── UrlRepository.php
     └── Services
