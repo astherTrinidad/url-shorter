@@ -1,70 +1,96 @@
-# Getting Started with Create React App
+## Características 📋
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Framework
 
-## Available Scripts
+![logo react](https://user-images.githubusercontent.com/61313038/118236531-7a9aee00-b496-11eb-93ed-8e6ea0417edb.png)
 
-In the project directory, you can run:
+Se utiliza React.
+https://es.reactjs.org/
 
-### `yarn start`
+### Versiones
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+• React: 17.0.2
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+• Node: v14.17.0
 
-### `yarn test`
+• NPM: 6.14.13
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Lenguajes 🛠️
 
-### `yarn build`
+El código se escribe en ReactJs.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Cada uno de los estilos en los diferentes componentes se incluyen mediante styled-components, éste a su vez utiliza todas las propiedades y valores de CSS.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Quick start 🚀
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Este proyecto está creado en React [Create React App](https://github.com/facebook/create-react-app).
 
-### `yarn eject`
+Desde el directorio del proyecto debemos levantar el backend usando Docker.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+docker-compose up -d
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Instalamos las dependencias con npm.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+npm install
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Ahora iniciamos la aplicación de react en la consola.
 
-## Learn More
+```
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+A continuación, el navegador se abrirá y podremos observar que podemos acceder a esta aplicación mediante http://localhost:3000
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## React
 
-### Code Splitting
+La variable de entorno en el que indicamos la ruta para poder realizar las llamadas al endPoint se encuentran en un fichero ".env".
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Las diferentes llamadas a la API están incorporadas dentro de la carpeta src/api.
 
-### Analyzing the Bundle Size
+Los archivos de configuración de las URLs se encuentran dentro de src/config.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Se incluye una expresión regular para validar la dirección de url introducida. Esta validación está incorporada dentro de la carpeta src/utils.
 
-### Making a Progressive Web App
+### Estructura de carpetas 📁
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
+├── public
+└── src
+    ├── api
+    │   └── index.js
+    ├── assets
+    │   ├── colors.js
+    │   └── images
+    ├── components
+    │   ├── atoms
+    │   ├── molecules
+    │   ├── organisms
+    │   ├── pages
+    │   └── system
+    ├── config
+    │   ├── appRoutes.js
+    │   └── url.js
+    ├── index.css
+    ├── index.js
+    └── utils
+        └── index.js
+```
 
-### Advanced Configuration
+### Estructura de carpetas de componentes visuales 📁
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+atoms
+    ├── index.js
+    ├── regularButton
+    │   ├── index.js
+    │   ├── styled.js
+    │   └── view.js
+    └── regularInput
+        ├── index.js
+        ├── styled.js
+        └── view.js
+```
