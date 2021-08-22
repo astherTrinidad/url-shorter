@@ -1,13 +1,16 @@
-# url shorter
+# URL SHORTER
 
-Este proyecto nos permite acortar una dirección de URL. Al ingresar la URL generada en el navegador, se envía una solicitud HTTP al servidor para abrir el sitio web indicado en un incio.
+Este proyecto nos permite acortar una dirección de URL. Al ingresar la URL acortada en el navegador, se realiza una redirección a la URL original.
 
 ## Prerrequisitos 📋
 
 Para poder ejecutar el proyecto en un entorno local es necesario la instalación de:
-Docker: https://docs.docker.com/compose/install/
-Node: https://nodejs.org/en/
-Npm: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
+
+• Docker: https://docs.docker.com/compose/install/
+
+• Node: https://nodejs.org/en/
+
+• Npm: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 
 ## Instalación y configuración 🛠️
 
@@ -23,5 +26,6 @@ Enlace al Readme del frontend: [url-shorter-front/README.md](url-shorter-front/R
 
 ## Casos de uso
 
-1. Creación de url acortada, mediante un código generado aleatoriamente y pasado como parámetro a nuestra url local.
-2. Redirección a url original mediante url acortada genearada.
+1. El usuario introduce una dirección de URL en el formulario de la aplicación web, y ésta le devuelve una URL acortada que apunta a la URL original.
+
+2. El usuario introduce una URL acortada generada por la aplicación web en el navegador, y la aplicación le redirige a la URL original.

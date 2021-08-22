@@ -25,13 +25,13 @@ Cada uno de los estilos en los diferentes componentes se incluyen mediante style
 
 Este proyecto está creado en React [Create React App](https://github.com/facebook/create-react-app).
 
-Desde el directorio del proyecto debemos de levantar la aplicación en Docker.
+Desde el directorio del proyecto debemos levantar el backend usando Docker.
 
 ```
 docker-compose up -d
 ```
 
-Verificamos todas las dependencias instaladas y creadas en el proyecto. Una vez actualizadas podremos visualizar todas las dependencias dentro del fichero package.json.
+Instalamos las dependencias con npm.
 
 ```
 npm install
@@ -47,11 +47,11 @@ A continuación, el navegador se abrirá y podremos observar que podemos acceder
 
 ## React
 
-La variable de entorno en el que indicamos la ruta para poder realizar las llamadas al endPoint se encuentran en un fichero .env.
+La variable de entorno en el que indicamos la ruta para poder realizar las llamadas al endPoint se encuentran en un fichero ".env".
 
-Los diferentes endPoint están incorporados dentro de la carpeta src/api.
+Las diferentes llamadas a la API están incorporadas dentro de la carpeta src/api.
 
-Por otro lado, disponemos dentro de la carpeta src/config dos ficheros en el que indicamos una serie de variables que necesitaremos durante el proyecto.
+Los archivos de configuración de las URLs se encuentran dentro de src/config.
 
 Se incluye una expresión regular para validar la dirección de url introducida. Esta validación está incorporada dentro de la carpeta src/utils.
 
@@ -76,7 +76,6 @@ Se incluye una expresión regular para validar la dirección de url introducida.
     │   └── url.js
     ├── index.css
     ├── index.js
-    ├── setupTests.js
     └── utils
         └── index.js
 ```
