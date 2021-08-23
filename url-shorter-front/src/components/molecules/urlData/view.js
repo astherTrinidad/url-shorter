@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import url from "../../../config/url";
 
 import { ContainerData, TextData, TextLink } from "./styled";

@@ -1,6 +1,6 @@
 const url = {
-  baseBack: process.env.REACT_API_BASE_URL,
-  baseFront: process.env.REACT_APP_BASE_URL,
+  baseBack: process.env.REACT_APP_BACK_URL,
+  baseFront: process.env.REACT_APP_FRONT_URL,
   shorterUrl: "/shorter",
 };
 
