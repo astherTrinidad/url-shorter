@@ -43,6 +43,7 @@ const Dashboard = () => {
 
   const handleCreateUrl = async (event) => {
     event.preventDefault();
+    setCopied(false);
     if (!errors.origin) {
       try {
         var response = await API.shorterUrl(urlData);
