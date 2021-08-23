@@ -77,7 +77,6 @@ const Dashboard = () => {
 
   const handleCopyUrl = () => {
     const urlShorterText = document.createElement("input");
-    console.log("soy shorter" + urlShorterText);
     urlShorterText.value = `${url.baseFront}${urlData.shorter}`;
     document.body.appendChild(urlShorterText);
     urlShorterText.select();
