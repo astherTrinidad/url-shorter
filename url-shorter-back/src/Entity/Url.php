@@ -38,7 +38,7 @@ class Url {
         return $this->origin;
     }
 
-    public function getShorterWithUrlBase(): string {
+    public function getShorter(): string {
         return $this->shorter;
     }
     

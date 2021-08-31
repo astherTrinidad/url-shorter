@@ -18,7 +18,7 @@ class PostUrlManager {
         $random = $this->createRandomKey();
         $url = new Url($parameters['origin'], $random);
         $this->urlRepository->save($url);
-        return ['origin' => $url->getOrigin(), 'shorter' => $url->getShorterWithUrlBase()];
+        return ['origin' => $url->getOrigin(), 'shorter' => $url->getShorter()];
     }
 
     private function createRandomKey() {
